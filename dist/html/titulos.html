@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Títulos y Diplomas — Sofia Rosales">
+  <title>Títulos y Diplomas · Sofia Rosales</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kalam:wght@400;700&display=swap">
+
+  <style>
+:root {
+  --primary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --success-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  --brand-pink: #f5576c;
+  --accent-pink: #ff9a9e;
+  --text-primary: #2c3e50;
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: var(--shadow-soft);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.8rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navbar hover/active */
+.navbar-nav .nav-link {
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  margin: 0 0.5rem;
+  color: var(--text-primary) !important;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--brand-pink) !important;
+  transform: translateY(-2px);
+}
+
+/* Sección principal */
+.titulos-section {
+  padding: 6rem 0;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(15px);
+}
+
+.titulos-section h1 {
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  text-align: center;
+  font-size: 3rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.titulos-section p {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 3rem;
+}
+
+/* Tarjetas */
+.diploma-card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  background: white;
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.diploma-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+}
+
+.diploma-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain; /* cambia de cover a contain */
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 10px; /* agrega un margen interno para que no se corte */
+}
+
+
+.diploma-content {
+  padding: 1.5rem;
+}
+
+.diploma-content h5 {
+  font-weight: 600;
+  color: var(--brand-pink);
+  margin-top: 0.5rem;
+}
+
+.diploma-content p {
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+.diploma-content .btn {
+  background: var(--success-gradient);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.diploma-content .btn:hover {
+  transform: scale(1.05);
+}
+
+/* ====== Artículo Publicado ====== */
+#articulo {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  padding: 5rem 0;
+  position: relative;
+}
+
+.articulo-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  box-shadow: var(--shadow-soft);
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.articulo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-strong);
+}
+
+.articulo-icon {
+  font-size: 5rem;
+  color: var(--brand-pink);
+  background: var(--success-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 4s ease-in-out infinite;
+}
+
+.articulo-title {
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.articulo-desc {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.articulo-btn {
+  background: var(--success-gradient);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.articulo-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+  color: white;
+}
+
+/* Footer */
+footer {
+  background: rgba(44, 62, 80, 0.95);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: linear-gradient(135deg, #2a1a2e 0%, #3e1e36 100%);
+  color: #e0e0e0;
+}
+body.dark-mode .titulos-section { background: rgba(42,26,46,0.7); }
+body.dark-mode .diploma-card { background: rgba(60, 40, 60, 0.9); color: #f0f0f0; }
+body.dark-mode footer { background: rgba(20, 10, 25, 0.95); }
+body.dark-mode #articulo { background: linear-gradient(135deg, #2a1a2e 0%, #3e1e36 100%); }
+body.dark-mode .articulo-card { background: rgba(60, 40, 60, 0.9); color: #e0e0e0; }
+body.dark-mode .articulo-btn { background: var(--primary-gradient); color: white; }
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-lg">
+      <a class="navbar-brand" href="../../index.html">Portafolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery/Experience</a></li>
+          <li class="nav-item"><a class="nav-link active" href="titulos.html">Títulos y Diplomas</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sección principal -->
+  <section class="titulos-section">
+    <div class="container-lg">
+      <div class="text-center mb-4">
+        <div style="font-size:2rem;">🍎📚✨</div>
+        <h1>Títulos y Diplomas</h1>
+        <p>Reconocimientos y certificaciones que reflejan mi formación y vocación por la enseñanza.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        <!-- Congreso de Pediatría -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card diploma-card">
+            <img src="../../images/pediatria.jpg" alt="Congreso de Pediatría">
+            <div class="diploma-content">
+              <h5>Congreso de Pediatría</h5>
+              <p>Participación en evento académico especializado.</p>
+              <a href="../../assets/Congreso de Pediatria.pdf" target="_blank" class="btn">
+                <i class="bi bi-eye"></i> Ver PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Abordar Tartamudez -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card diploma-card">
+            <img src="../../images/tartamudez.jpg" alt="Abordar Tartamudez">
+            <div class="diploma-content">
+              <h5>Abordar Tartamudez</h5>
+              <p>Certificación en técnicas terapéuticas del lenguaje.</p>
+              <a href="../../assets/Abordar Tarta.pdf" target="_blank" class="btn">
+                <i class="bi bi-eye"></i> Ver PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificado TEA -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card diploma-card">
+            <img src="../../images/tea.jpg" alt="Certificado TEA">
+            <div class="diploma-content">
+              <h5>Certificado TEA</h5>
+              <p>Formación en Trastorno del Espectro Autista.</p>
+              <a href="../../assets/CERTIFICADO TEA.pdf" target="_blank" class="btn">
+                <i class="bi bi-eye"></i> Ver PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fonoaudiología -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card diploma-card">
+            <img src="../../images/fonoaudiologia.png" alt="Fonoaudiología">
+            <div class="diploma-content">
+              <h5>Fonoaudiología</h5>
+              <p>Especialización en audición y lenguaje terapéutico.</p>
+              <a href="../../assets/FONOAUDIOLOGIA.pdf" target="_blank" class="btn">
+                <i class="bi bi-eye"></i> Ver PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lenguaje en SD -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card diploma-card">
+            <img src="../../images/lenguajesd.jpg" alt="Lenguaje en Síndrome de Down">
+            <div class="diploma-content">
+              <h5>Lenguaje en Síndrome de Down</h5>
+              <p>Estrategias de estimulación del lenguaje en SD.</p>
+              <a href="../../assets/LENGUAJE EN SD.pdf" target="_blank" class="btn">
+                <i class="bi bi-eye"></i> Ver PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teletón Diploma -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card diploma-card">
+            <img src="../../images/teleton.jpg" alt="Reconocimiento Teletón">
+            <div class="diploma-content">
+              <h5>Reconocimiento Teletón</h5>
+              <p>Agradecimiento por participación profesional en apoyo terapéutico.</p>
+              <a href="../../assets/teleton diploma.pdf" target="_blank" class="btn">
+                <i class="bi bi-eye"></i> Ver PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Artículo Publicado -->
+<section id="articulo">
+  <div class="container-lg">
+    <div class="articulo-card">
+      <div class="row align-items-center g-4">
+        
+        <!-- Imagen del artículo -->
+        <div class="col-md-5 text-center">
+          <img src="../../images/articulo.jpg" alt="Artículo publicado Tartamudez en adolescentes"
+               class="img-fluid rounded-4 shadow-sm" 
+               style="max-height: 350px; object-fit: contain; background: #fff; padding: 10px;">
+        </div>
+
+        <!-- Texto del artículo -->
+        <div class="col-md-7">
+          <h2 class="articulo-title">📖 Artículo Académico Publicado</h2>
+          <p class="articulo-desc">
+            Publicación oficial en la revista <strong>Cuadernos Fronterizos</strong> de la
+            <strong>Universidad Autónoma de Ciudad Juárez (UACJ)</strong>.  
+            Este artículo, titulado <em>“Tartamudez en adolescentes: experiencia en el proceso de intervención”</em>,
+            refleja mi compromiso con la investigación, la enseñanza y la inclusión educativa.
+          </p>
+          <a href="https://erevistas.uacj.mx/ojs/index.php/cuadfront/article/view/6723/8622"
+             target="_blank" class="articulo-btn">
+            <i class="bi bi-book"></i> Leer artículo completo
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="mb-0">© 2025 Sofia Rosales — Hecho con ❤️ y vocación docente.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
